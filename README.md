@@ -9,8 +9,12 @@ The app simply prints the cartesian coordinates of every found target.
 from __future__ import print_function
 from imp import load_source
 from os.path import join
+from sys import platform
 
-path = join('/usr', 'share', 'walabot', 'python')
+if platform == 'win32': # for windows
+    path = join('C:/', 'Program Files', 'Walabot', 'WalabotSDK', 'python')
+else: # for linux, raspberry pi, etc.
+    path = join('/usr', 'share', 'walabot', 'python')
 wlbt = load_source('WalabotAPI', join(path, 'WalabotAPI.py'))
 wlbt.Init()
 wlbt.SetSettingsFolder()
@@ -30,7 +34,6 @@ while True:
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 wlbt.Stop()
 wlbt.Disconnect()
-
 ```
 
 ## A line-by-line explanation
