@@ -16,7 +16,7 @@ wlbt.Start()
 while True:
     wlbt.Trigger()
     targets = wlbt.GetSensorTargets()
-    system('cls' if platform == 'win32' else 'clear') $clear the terminal screen
+    system('cls' if platform == 'win32' else 'clear') #clear the terminal screen
     for i, t in enumerate(targets):
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 wlbt.Stop()
