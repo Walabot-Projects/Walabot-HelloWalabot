@@ -1,7 +1,7 @@
 # First Walabot App
 
 Here displays the simplest, shortest Walabot application available, written in Python.  
-The app simply prints the coordinates of every found target.
+The app simply prints the cartesian coordinates of every found target.
 
 ## Full code
 
@@ -71,13 +71,13 @@ This line is a must-have after loading the wrapper.
 ```
 wlbt.SetSettingsFolder()
 ```
-The Walabot SDK uses certain DB files. This function loads the path to those files.  
-If no path is specified, the SDK will use the default path and internal DB's.
+The Walabot SDK uses certain database files. This function loads the path to those files.  
+If no path is specified, the SDK will use the default path and internal databases.
 
 ```
 wlbt.ConnectAny()
 ```
-Establishes communication with Walabot.  
+Establishes communication with the Walabot.  
 Connection is required before `Start()`.
 If multiple Walabots are present, a single available Walabot is selected.  
 To specify one, use `Connect()`.
@@ -86,7 +86,7 @@ To specify one, use `Connect()`.
 wlbt.SetProfile(wlbt.PROF_SENSOR)
 ```
 Sets scan profile.  
-For an explanation of available profiles, see [Imaging Features](http://api.walabot.com/_features.html).
+For an explanation of other profiles, see [Imaging Features](http://api.walabot.com/_features.html).
 ###### Parameters
 * `profile` - The scan profile to use.
 
