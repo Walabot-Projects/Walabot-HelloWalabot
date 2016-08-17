@@ -1,3 +1,15 @@
+# Installing WalabotAPI Library Using pip
+Simply write one of these two lines into the terminal or cmd depends on your operation system.
+## Windows
+```
+python -m pip install "C:\Program Files\Walabot\WalabotSDK\python\WalabotAPI-1.0.21.zip"
+```
+
+## Linux
+```
+python -m pip install "/usr/share/walabot/python/WalabotAPI-1.0.21.tar.gz"
+```
+
 # First Walabot App
 
 Here displays the simplest, shortest Walabot application available, written in Python.  
