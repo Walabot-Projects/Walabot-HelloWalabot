@@ -1,6 +1,7 @@
 from __future__ import print_function
 from sys import platform
-import WalabotApi as wlbt
+from os import system
+import WalabotAPI as wlbt
 
 wlbt.Init()
 wlbt.SetSettingsFolder()
