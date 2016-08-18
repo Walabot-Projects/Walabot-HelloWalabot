@@ -26,14 +26,14 @@ import WalabotAPI as wlbt
 wlbt.Init()
 wlbt.SetSettingsFolder()
 wlbt.ConnectAny()
-wlbt.SetProfile(wlbt.PROF_SENSOR)
 
+wlbt.SetProfile(wlbt.PROF_SENSOR)
 wlbt.SetArenaR(10, 50, 5)
 wlbt.SetArenaTheta(-15, 15, 10)
 wlbt.SetArenaPhi(-30, 30, 5)
 wlbt.SetThreshold(15)
-
 wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)
+
 wlbt.Start()
 
 while True:
@@ -55,26 +55,20 @@ from __future__ import print_function
 ```
 For cross python2-python3 code. Makes the `print()` function available in python2.
 
+```
+from sys import platform
+```
+Retrieve the type of operation system.
 
 ```
-from imp import load_source
+from os import system
 ```
-The `imp` module will allow us to load the `WalabotAPI.py` wrapper from specific path.
+Execute terminal commands (used to clear the terminal screen)
 
 ```
-from os.path import join
+import WalabotAPI as wlbt
 ```
-The `join()` function is used here to create a cross-platform path easily.
-
-```
-path = join('/usr', 'share', 'walabot', 'python')
-```
-The path to 'WalabotAPI.py' wrapper is assigned to `path` variable.
-
-```
-wlbt = load_source('WalabotAPI', join(path, 'WalabotAPI.py'))
-```
-The `WalabotAPI.py` wrapper is loaded to the `wlbt` variable.
+The `WalabotAPI` wrapper is loaded to the `wlbt` alias.
 
 ```
 wlbt.Init()
@@ -190,9 +184,9 @@ Provided image data is dependent on current configured arena and on current conf
 * `targets` - List of identified targets.
 
 ```
-    print(chr(27) + "[2J")
+    system('cls' if platform == 'win32' else 'clear') # clear the terminal screen
 ```
- Clears the terminal screen.
+ Clears the terminal screen (send command according to the user OS).
 
 ```
     for i, t in enumerate(targets):
