@@ -31,10 +31,6 @@ wlbt.SetSettingsFolder()
 wlbt.ConnectAny()
 
 wlbt.SetProfile(wlbt.PROF_SENSOR)
-wlbt.SetArenaR(10, 50, 5)
-wlbt.SetArenaTheta(-15, 15, 10)
-wlbt.SetArenaPhi(-30, 30, 5)
-wlbt.SetThreshold(15)
 wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)
 
 wlbt.Start()
@@ -101,51 +97,6 @@ Sets scan profile.
 For an explanation of other profiles, see [Imaging Features](http://api.walabot.com/_features.html).
 ###### Parameters
 * `profile` - The scan profile to use.
-
-```
-wlbt.SetArenaR(10, 50, 5)
-```
-Sets radial (r) range and resolution of arena.  
-For coordinate directions, see [Coordinate Systems](http://api.walabot.com/_features.html#_coordination).  
-To check the current value, use `GetArenaR()`.  
-Spherical (r-Θ-Φ) coordinates should be used only to get image data from a triggered scan that used one of the Sensor profiles. Otherwise use the `SetArena` functions for cartesian (X-Y-Z) coordinates.  
-###### Parameters
-* `start` - Beginning of radial distance range (cm).
-* `end` - End of radial distance range (cm).
-* `res` - Distance between pixels along radius (cm).
-
-```
-wlbt.SetArenaTheta(-15, 15, 10)
-```
-Sets polar (Θ) range and resolution of arena.  
-For coordinate directions, see [Coordinate Systems](http://api.walabot.com/_features.html#_coordination).  
-To check the current value, use `GetArenaTheta()`.  
-Spherical (r-Θ-Φ) coordinates should be used only to get image data from a triggered scan that used one of the Sensor profiles. Otherwise use the `SetArena` functions for cartesian (X-Y-Z) coordinates.
-###### Parameters
-* `min` - Beginning of polar angular range (degrees).
-* `max` - End of polar angular range (degrees).
-* `res` - Angle between pixels across polar angle (degrees).
-
-```
-wlbt.SetArenaPhi(-30, 30, 5)
-```
-Sets azimuth (Φ) range and resolution of arena.
-For coordinate directions, see [Coordinate Systems](http://api.walabot.com/_features.html#_coordination).  
-To check the current value, use `GetArenaPhi()`.  
-Spherical (r-Θ-Φ) coordinates should be used only to get image data from a triggered scan that used one of the Sensor profiles. Otherwise use the `SetArena` functions for cartesian (X-Y-Z) coordinates.
-###### Parameters
-* `min` - Beginning of azimuth angular range (degrees).
-* `max` - End of azimuth angular range (degrees).
-* `res` - Angle between pixels across polar angle (degrees).
-
-```
-wlbt.SetThreshold(15)
-```
-Changes the sensitivity threshold.  
-For raw images (3-D and Slice), Walabot removes very weak signals, below this threshold. If the threshold is not set, a default value is used.  
-To check the current value, use `GetThreshold()`.
-###### Parameters
-* `value` - The threshold to set.
 
 ```
 wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)
