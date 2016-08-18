@@ -1,19 +1,22 @@
-# Installing WalabotAPI Library Using pip
-Simply write one of these two lines into the terminal or cmd depends on your operation system.
-## Windows
-```
-python -m pip install "C:\Program Files\Walabot\WalabotSDK\python\WalabotAPI-1.0.21.zip"
-```
-
-## Linux
-```
-python -m pip install "/usr/share/walabot/python/WalabotAPI-1.0.21.tar.gz"
-```
-
 # First Walabot App
 
 Here displays the simplest, shortest Walabot application available, written in Python.  
 The app simply prints the cartesian coordinates of every found target.
+
+## Installing the WalabotAPI Python Library Using pip
+
+After [installing the WalabotSDK](http://walabot.com/getting-started) on your machine:  
+Simply write one of these two lines into the terminal or cmd depends on your operation system.
+
+### Windows
+```
+python -m pip install "C:\Program Files\Walabot\WalabotSDK\python\WalabotAPI-1.0.21.zip"
+```
+
+### Linux / Raspberry PI
+```
+python -m pip install "/usr/share/walabot/python/WalabotAPI-1.0.21.zip"
+```
 
 ## Full code
 
