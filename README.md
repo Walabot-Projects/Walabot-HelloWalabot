@@ -20,7 +20,7 @@ python -m pip install "/usr/share/walabot/python/WalabotAPI-1.0.21.zip"
 
 ## Full code
 
-```
+```python
 from __future__ import print_function
 from sys import platform
 from os import system
