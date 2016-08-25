@@ -49,40 +49,40 @@ wlbt.Disconnect()
 
 ## A line-by-line explanation
 
-```
+```python
 from __future__ import print_function
 ```
 For cross python2-python3 code. Makes the `print()` function available in python2.
 
-```
+```python
 from sys import platform
 ```
 Retrieve the type of operation system.
 
-```
+```python
 from os import system
 ```
 Execute terminal commands (used to clear the terminal screen)
 
-```
+```python
 import WalabotAPI as wlbt
 ```
 The `WalabotAPI` wrapper is loaded to the `wlbt` alias.
 
-```
+```python
 wlbt.Init()
 ```
 The `WalabotAPI.py` wrapper uses the Walabot SDK (written in C).
 The `Init()` function loads that SDK to the wrapper.
 This line is a must-have after loading the wrapper.
 
-```
+```python
 wlbt.SetSettingsFolder()
 ```
 The Walabot SDK uses certain database files. This function loads the path to those files.  
 If no path is specified, the SDK will use the default path and internal databases.
 
-```
+```python
 wlbt.ConnectAny()
 ```
 Establishes communication with the Walabot.  
@@ -90,7 +90,7 @@ Connection is required before `Start()`.
 If multiple Walabots are present, a single available Walabot is selected.  
 To specify one, use `Connect()`.
 
-```
+```python
 wlbt.SetProfile(wlbt.PROF_SENSOR)
 ```
 Sets scan profile.  
@@ -98,7 +98,7 @@ For an explanation of other profiles, see [Imaging Features](http://api.walabot.
 ###### Parameters
 * `profile` - The scan profile to use.
 
-```
+```python
 wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)
 ```
 Dynamic-imaging filter removes static signals, leaving only changing signals.  
@@ -108,26 +108,26 @@ To check the current value, use `GetDynamicImageFilter()`.
 ###### Parameters
 * `type` - Filter algorithm to use.
 
-```
+```python
 wlbt.Start()
 ```
 Starts Walabot in preparation for scanning.  
 Requires previous Connect (`ConnectAny()` or `Connect()`) and `SetProfile()`.  
 Required before `Trigger()` and GET actions.
 
-```
+```python
 while True:
 ```
 Runs the indented block over and over - forever.
 
-```
+```python
     wlbt.Trigger()
 ```
 Initiates a scan and records signals.   
 Initiates a scan according to profile and records signals to be available for processing and retrieval.  
 Should be performed before every GET action.
 
-```
+```python
     targets = wlbt.GetSensorTargets()
 ```
 Provides a list of and the number of identified targets.  
@@ -137,29 +137,29 @@ Provided image data is dependent on current configured arena and on current conf
 ###### Returns
 * `targets` - List of identified targets.
 
-```
+```python
     system('cls' if platform == 'win32' else 'clear') # clear the terminal screen
 ```
  Clears the terminal screen (send command according to the user OS).
 
-```
+```python
     for i, t in enumerate(targets):
 ```
 Iterates over the `targets` list while keeping the index of the corresponding target.  
 See the [Python documentation](https://docs.python.org/3/library/functions.html#enumerate) in the topic.
 
-```
+```python
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 ```
 Prints the x, y, and z values of a target (of type `SensorTarget`).
 
-```
+```python
 wlbt.Stop()
 ```
 Stops Walabot when finished scanning.
 
 
-```
+```python
 wlbt.Disconnect()
 ```
 Stops communication with Walabot.
