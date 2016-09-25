@@ -38,9 +38,10 @@ wlbt.Start()
 while True:
     wlbt.Trigger()
     targets = wlbt.GetSensorTargets()
-    system('cls' if platform == 'win32' else 'clear') #clear the terminal screen
+    system('cls' if platform == 'win32' else 'clear')  # clear the terminal
     for i, t in enumerate(targets):
-        print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(i+1, t.xPosCm, t.yPosCm, t.zPosCm))
+        print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(
+            i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 
 wlbt.Stop()
 wlbt.Disconnect()
@@ -149,7 +150,8 @@ Iterates over the `targets` list while keeping the index of the corresponding ta
 See the [Python documentation](https://docs.python.org/3/library/functions.html#enumerate) in the topic.
 
 ```python
-        print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(i+1, t.xPosCm, t.yPosCm, t.zPosCm))
+        print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(
+            i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 ```
 Prints the x, y, and z values of a target (of type `SensorTarget`).
 
