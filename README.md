@@ -1,5 +1,7 @@
 # First Walabot App
 
+[![Create your first app in under 2 minutes with Walabot!](http://img.youtube.com/vi/JBSL8tojM8Q/0.jpg)](http://www.youtube.com/watch?v=JBSL8tojM8Q)
+
 Here displays the simplest, shortest Walabot application available, written in Python.  
 The app simply prints the cartesian coordinates of every found target.
 
