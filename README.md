@@ -12,12 +12,12 @@ Simply write one of these two lines into the terminal or cmd depends on your ope
 
 ### Windows
 ```
-python -m pip install "C:\Program Files\Walabot\WalabotSDK\python\WalabotAPI-1.0.33.zip"
+pip install WalabotAPI --no-index --find-links="%PROGRAMFILES%\Walabot\WalabotSDK\python\"
 ```
 
 ### Linux / Raspberry PI
 ```
-python -m pip install "/usr/share/walabot/python/WalabotAPI-1.0.33.zip"
+pip install WalabotAPI --no-index --find-links="/usr/share/walabot/python/"
 ```
 
 ## Full code
