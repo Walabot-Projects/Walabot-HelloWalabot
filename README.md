@@ -8,7 +8,7 @@ Here displays the simplest, shortest Walabot application available, written in P
 
 ## How to use
 
-1. Install the [Walabot SDK](http://walabot.com/getting-started) and the [WalabotAPI Python library](http://api.walabot.com/_pythonapi.html) using pip.
+1. Install the [Walabot SDK](http://walabot.com/getting-started) and the WalabotAPI Python library using pip.
 6. Run `HelloWalabot.py`.
 
 
