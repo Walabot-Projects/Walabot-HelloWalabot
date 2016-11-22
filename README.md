@@ -3,19 +3,26 @@
 [![Create your first app in under 2 minutes with Walabot!](http://img.youtube.com/vi/JBSL8tojM8Q/0.jpg)](http://www.youtube.com/watch?v=JBSL8tojM8Q)
 
 Here displays the simplest, shortest Walabot application available, written in Python.  
-The app simply prints the cartesian coordinates of every found target.
+* Prints the cartesian coordinates of every target found by the Walabot.
+* Works on both Python 2 and Python 3.
 
-## Installing the WalabotAPI Python Library Using pip
+## How to use
+
+1. Install the [Walabot SDK](http://walabot.com/getting-started) and the [WalabotAPI Python library](http://api.walabot.com/_pythonapi.html) using pip.
+6. Run `HelloWalabot.py`.
+
+
+####  Installing the WalabotAPI Python Library
 
 After [installing the WalabotSDK](http://walabot.com/getting-started) on your machine:  
 Simply write one of these two lines into the terminal or cmd depends on your operation system.
 
-### Windows
+##### Windows
 ```
 pip install WalabotAPI --no-index --find-links="%PROGRAMFILES%\Walabot\WalabotSDK\python\\"
 ```
 
-### Linux / Raspberry PI
+##### Linux / Raspberry PI
 ```
 pip install WalabotAPI --no-index --find-links="/usr/share/walabot/python/"
 ```
