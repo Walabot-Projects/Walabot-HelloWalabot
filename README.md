@@ -28,44 +28,29 @@ from sys import platform
 from os import system
 import WalabotAPI as wlbt
 
-wlbt.Init()
-wlbt.SetSettingsFolder()
-wlbt.ConnectAny()
 
-wlbt.SetProfile(wlbt.PROF_SENSOR)
-wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)
+wlbt.Init()  # load the WalabotSDK to the Python wrapper
+wlbt.SetSettingsFolder()  # set the path to the essetial database files
+wlbt.ConnectAny()  # establishes communication with the Walabot
 
-wlbt.Start()
+wlbt.SetProfile(wlbt.PROF_SENSOR)  # set scan profile out of the possibilities
+wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)  # specify filter to use
+
+wlbt.Start()  # starts Walabot in preparation for scanning
 
 while True:
-    wlbt.Trigger()
-    targets = wlbt.GetSensorTargets()
+    wlbt.Trigger()  # initiates a scan and records signals
+    targets = wlbt.GetSensorTargets()  # provides a list of identified targets
     system('cls' if platform == 'win32' else 'clear')  # clear the terminal
     for i, t in enumerate(targets):
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(
             i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 
-wlbt.Stop()
-wlbt.Disconnect()
-
+wlbt.Stop()  # stops Walabot when finished scanning
+wlbt.Disconnect()  # stops communication with Walabot
 ```
 
 ## A line-by-line explanation
-
-```python
-from __future__ import print_function
-```
-For cross python2-python3 code. Makes the `print()` function available in python2.
-
-```python
-from sys import platform
-```
-Retrieve the type of operation system.
-
-```python
-from os import system
-```
-Execute terminal commands (used to clear the terminal screen)
 
 ```python
 import WalabotAPI as wlbt
@@ -119,11 +104,6 @@ Requires previous Connect (`ConnectAny()` or `Connect()`) and `SetProfile()`.
 Required before `Trigger()` and GET actions.
 
 ```python
-while True:
-```
-Runs the indented block over and over - forever.
-
-```python
     wlbt.Trigger()
 ```
 Initiates a scan and records signals.   
@@ -141,20 +121,11 @@ Provided image data is dependent on current configured arena and on current conf
 * `targets` - List of identified targets.
 
 ```python
-    system('cls' if platform == 'win32' else 'clear') # clear the terminal screen
-```
- Clears the terminal screen (send command according to the user OS).
-
-```python
     for i, t in enumerate(targets):
-```
-Iterates over the `targets` list while keeping the index of the corresponding target.  
-See the [Python documentation](https://docs.python.org/3/library/functions.html#enumerate) in the topic.
-
-```python
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(
             i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 ```
+Iterates over the `targets` list while keeping the index of the corresponding target.  
 Prints the x, y, and z values of a target (of type `SensorTarget`).
 
 ```python
