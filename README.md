@@ -37,17 +37,17 @@ import WalabotAPI as wlbt
 
 
 wlbt.Init()  # load the WalabotSDK to the Python wrapper
-wlbt.SetSettingsFolder()  # set the path to the essetial database files
+wlbt.Initialize()  # set the path to the essetial database files
 wlbt.ConnectAny()  # establishes communication with the Walabot
 
-wlbt.SetProfile(wlbt.PROF_SENSOR)  # set scan profile out of the possibilities
+wlbt.SetProfile(wlbt.PROF_TRACKER)  # set scan profile out of the possibilities
 wlbt.SetDynamicImageFilter(wlbt.FILTER_TYPE_MTI)  # specify filter to use
 
 wlbt.Start()  # starts Walabot in preparation for scanning
 
 while True:
     wlbt.Trigger()  # initiates a scan and records signals
-    targets = wlbt.GetSensorTargets()  # provides a list of identified targets
+    targets = wlbt.wlbt.GetTrackerTargets()  # provides a list of identified targets
     system('cls' if platform == 'win32' else 'clear')  # clear the terminal
     for i, t in enumerate(targets):
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(
@@ -72,7 +72,7 @@ The `Init()` function loads that SDK to the wrapper.
 This line is a must-have after loading the wrapper.
 
 ```python
-wlbt.SetSettingsFolder()
+wlbt.wlbt.Initialize()
 ```
 The Walabot SDK uses certain database files. This function loads the path to those files.  
 If no path is specified, the SDK will use the default path and internal databases.
@@ -86,7 +86,7 @@ If multiple Walabots are present, a single available Walabot is selected.
 To specify one, use `Connect()`.
 
 ```python
-wlbt.SetProfile(wlbt.PROF_SENSOR)
+wlbt.SetProfile(wlbt.PROF_TRACKER)
 ```
 Sets scan profile.  
 For an explanation of other profiles, see [Imaging Features](http://api.walabot.com/_features.html).
@@ -118,10 +118,10 @@ Initiates a scan according to profile and records signals to be available for pr
 Should be performed before every GET action.
 
 ```python
-    targets = wlbt.GetSensorTargets()
+    targets = wlbt.GetTrackerTargets()
 ```
 Provides a list of and the number of identified targets.  
-Available only if one of the Sensor scan profiles was used.  
+Available only if one of the Tracker scan profiles was used.  
 Requires previous `Trigger()`; provides data based on last completed triggered image.  
 Provided image data is dependent on current configured arena and on current configuration from `SetDynamicImageFilter()` and `SetThreshold()`.
 ###### Returns
@@ -133,7 +133,7 @@ Provided image data is dependent on current configured arena and on current conf
             i+1, t.xPosCm, t.yPosCm, t.zPosCm))
 ```
 Iterates over the `targets` list while keeping the index of the corresponding target.  
-Prints the x, y, and z values of a target (of type `SensorTarget`).
+Prints the x, y, and z values of a target (of type `TrackerTarget`).
 
 ```python
 wlbt.Stop()
