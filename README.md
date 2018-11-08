@@ -47,7 +47,7 @@ wlbt.Start()  # starts Walabot in preparation for scanning
 
 while True:
     wlbt.Trigger()  # initiates a scan and records signals
-    targets = wlbt.wlbt.GetTrackerTargets()  # provides a list of identified targets
+    targets = wlbt.GetTrackerTargets()  # provides a list of identified targets
     system('cls' if platform == 'win32' else 'clear')  # clear the terminal
     for i, t in enumerate(targets):
         print('Target #{}\nx = {}\ny = {}\nz = {}\n'.format(
