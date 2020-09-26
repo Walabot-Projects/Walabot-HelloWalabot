@@ -37,7 +37,7 @@ import WalabotAPI as wlbt
 
 
 wlbt.Init()  # load the WalabotSDK to the Python wrapper
-wlbt.Initialize()  # set the path to the essetial database files
+wlbt.Initialize()  # set the path to the essential database files
 wlbt.ConnectAny()  # establishes communication with the Walabot
 
 wlbt.SetProfile(wlbt.PROF_TRACKER)  # set scan profile out of the possibilities
